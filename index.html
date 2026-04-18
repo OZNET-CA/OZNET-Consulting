@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OZNET | Global Technology Advisory</title>
+    <title>OZNET | Global Technology Advisory & Systems Architecture</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -14,7 +14,7 @@
             --slate-gray: #1e1e20;
             --text-light: #f4f4f5;
             --text-dim: #a1a1aa;
-            --white: #ffffff;
+            --nav-height: 100px; /* Aligned with your logo preference */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -25,14 +25,16 @@
             color: var(--text-light);
             line-height: 1.7;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
-        /* --- Navigation --- */
+        /* --- Navigation Ribbon --- */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 8%;
+            padding: 0 8%;
+            height: var(--nav-height);
             position: fixed;
             width: 100%;
             top: 0;
@@ -42,11 +44,28 @@
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
-        .nav-brand { display: flex; align-items: center; }
-        .logo-nav { height: 65px; width: auto; }
+        .nav-brand { 
+            display: flex; 
+            align-items: center; 
+            height: 100%; 
+        }
+
+        .logo-nav { 
+            height: var(--nav-height); /* Fills the ribbon height */
+            width: auto; 
+            display: block;
+            object-fit: contain;
+        }
 
         .nav-links { display: flex; gap: 3rem; align-items: center; }
-        .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; transition: 0.3s; }
+        .nav-links a { 
+            color: var(--text-dim); 
+            text-decoration: none; 
+            font-size: 0.8rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            transition: 0.3s; 
+        }
         .nav-links a:hover { color: var(--gold); }
 
         .btn-cta {
@@ -59,21 +78,21 @@
         }
         .btn-cta:hover { background: var(--gold); color: var(--obsidian) !important; box-shadow: 0 0 20px var(--gold-glow); }
 
-        /* --- Hero --- */
+        /* --- Hero Section --- */
         .hero {
             height: 100vh;
             display: flex;
             align-items: center;
-            padding: 0 8%;
+            padding: calc(var(--nav-height) + 2rem) 8% 0 8%;
             background: radial-gradient(circle at 10% 10%, #1a1a1c 0%, #0a0a0b 100%);
         }
 
         .hero-content { max-width: 950px; }
         .hero-pre { color: var(--gold); font-weight: 700; font-size: 0.85rem; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 2rem; display: block; }
-        .hero h1 { font-size: 4.8rem; line-height: 1.05; margin-bottom: 2rem; letter-spacing: -0.03em; }
+        .hero h1 { font-size: 4.8rem; line-height: 1.05; margin-bottom: 2rem; letter-spacing: -0.03em; font-weight: 700; }
         .hero p { font-size: 1.4rem; color: var(--text-dim); margin-bottom: 3.5rem; max-width: 750px; font-weight: 300; }
 
-        /* --- Authority Strip --- */
+        /* --- Global Authority Strip --- */
         .authority {
             display: flex;
             justify-content: space-between;
@@ -82,11 +101,10 @@
             border-top: 1px solid rgba(255,255,255,0.05);
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-        .auth-item { text-align: left; }
         .auth-item h4 { font-size: 2.8rem; color: var(--white); margin-bottom: 0.5rem; font-weight: 700; }
         .auth-item p { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); font-weight: 600; }
 
-        /* --- Services --- */
+        /* --- Strategic Service Pillars --- */
         .services { padding: 10rem 8%; }
         .section-header { margin-bottom: 6rem; }
         .section-header h2 { font-size: 3.5rem; margin-bottom: 1.5rem; }
@@ -102,7 +120,6 @@
             background: linear-gradient(145deg, #131315 0%, #0a0a0b 100%);
             border: 1px solid rgba(255,255,255,0.03);
             transition: 0.4s;
-            position: relative;
         }
         .service-card:hover { border-color: var(--gold); transform: translateY(-5px); }
         .service-card i { color: var(--gold); margin-bottom: 2.5rem; display: block; }
@@ -121,6 +138,7 @@
 
         .copy { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 3rem; text-align: center; color: var(--text-dim); font-size: 0.8rem; letter-spacing: 1px; }
 
+        /* Mobile Optimization */
         @media (max-width: 1024px) {
             .hero h1 { font-size: 3.5rem; }
             .service-grid { grid-template-columns: 1fr; }
@@ -133,11 +151,11 @@
 
     <nav>
         <a href="#" class="nav-brand">
-            <img src="OZNET transparent logo.png" alt="OZNET" class="logo-nav">
+            <img src="OZNET transparent logo.png" alt="OZNET Global Advisory" class="logo-nav">
         </a>
         <div class="nav-links">
-            <a href="#expertise">Practice Areas</a>
-            <a href="#about">Approach</a>
+            <a href="#expertise">Expertise</a>
+            <a href="#approach">Strategic Approach</a>
             <a href="#contact" class="btn-cta">Start Consultation</a>
         </div>
     </nav>
@@ -146,33 +164,33 @@
         <div class="hero-content">
             <span class="hero-pre">Worldwide Technology Leadership</span>
             <h1>Architecting the Next Era of Enterprise.</h1>
-            <p>A strategic consultancy delivering high-performance digital ecosystems for global institutions. We bridge the gap between complex challenges and resilient technical architecture.</p>
-            <a href="#expertise" class="btn-cta" style="padding: 1.2rem 3rem; font-size: 1.1rem;">Explore Our Expertise</a>
+            <p>A strategic consultancy delivering high-performance digital ecosystems for global institutions[cite: 326]. We bridge the gap between complex challenges and resilient technical architecture.</p>
+            <a href="#expertise" class="btn-cta" style="padding: 1.2rem 3rem; font-size: 1.1rem;">Explore Our Practice Areas</a>
         </div>
     </section>
 
     <section class="authority">
         <div class="auth-item">
             <h4>25+</h4>
-            <p>Years in Design Leadership</p>
+            <p>Years in Design Leadership </p>
         </div>
         <div class="auth-item">
             <h4>Global</h4>
-            <p>Project Delivery Footprint</p>
+            <p>Institutional Delivery [cite: 326]</p>
         </div>
         <div class="auth-item">
             <h4>Enterprise</h4>
-            <p>Governance & Resilience</p>
+            <p>Governance & Resilience [cite: 174]</p>
         </div>
         <div class="auth-item">
             <h4>Strategic</h4>
-            <p>Advisory & Advisory</p>
+            <p>Advisory & Advisory [cite: 3, 226]</p>
         </div>
     </section>
 
     <section class="services" id="expertise">
         <div class="section-header">
-            <span class="hero-pre" style="margin-bottom: 1rem;">Core Competencies</span>
+            <span class="hero-pre" style="margin-bottom: 1rem;">Core Practice Areas</span>
             <h2>Integrated Advisory Services</h2>
         </div>
         
@@ -180,22 +198,22 @@
             <div class="service-card">
                 <i data-lucide="layers" size="44"></i>
                 <h3>Enterprise Systems Architecture</h3>
-                <p>Sophisticated design and integration of multi-cloud ecosystems and enterprise platforms, engineered for complex institutional and enterprise-scale governance.</p>
+                <p>Sophisticated design and integration of multi-cloud ecosystems and enterprise platforms [cite: 36, 146], engineered for complex institutional and enterprise-scale governance[cite: 37, 132].</p>
             </div>
             <div class="service-card">
                 <i data-lucide="shield-check" size="44"></i>
                 <h3>Compliance & Institutional Resilience</h3>
-                <p>Developing robust frameworks for data security and information management that exceed global regulatory standards and life-cycle requirements.</p>
+                <p>Developing robust frameworks for data security and information management [cite: 175] that exceed global regulatory standards and full life-cycle requirements[cite: 179, 188].</p>
             </div>
             <div class="service-card">
                 <i data-lucide="network" size="44"></i>
                 <h3>Modern Workforce Engineering</h3>
-                <p>Implementing high-performance virtualization and digital infrastructure solutions that enable secure, seamless global operations without borders.</p>
+                <p>Implementing high-performance virtualization and digital infrastructure solutions [cite: 81-89] that enable secure, seamless global operations without borders[cite: 136, 153].</p>
             </div>
             <div class="service-card">
                 <i data-lucide="trending-up" size="44"></i>
                 <h3>Strategic Innovation Advisory</h3>
-                <p>Partnering with senior leadership to deliver strategic roadmaps, systemic risk mitigation, and the evolution of emerging enterprise technologies.</p>
+                <p>Partnering with senior leadership to deliver strategic roadmaps [cite: 65, 117], systemic risk mitigation [cite: 72], and the evolution of emerging enterprise technologies[cite: 160].</p>
             </div>
         </div>
     </section>
@@ -204,24 +222,23 @@
         <div class="footer-main">
             <div class="footer-brand">
                 <img src="logo.png" alt="OZNET" class="footer-logo">
-                <p style="max-width: 350px; line-height: 2;">A global advisory firm specializing in technical architecture and systemic transformation for high-performance organizations.</p>
+                <p style="max-width: 350px; line-height: 2;">A global advisory firm specializing in technical architecture and systemic transformation for high-performance organizations[cite: 1, 325].</p>
             </div>
             <div class="footer-col">
-                <h5>Sectors</h5>
+                <h5>Practice Sectors</h5>
                 <ul>
                     <li><a href="#">Critical Infrastructure</a></li>
-                    <li><a href="#">Financial Services</a></li>
-                    <li><a href="#">Public Health Systems</a></li>
+                    <li><a href="#">Financial Institutions</a></li>
+                    <li><a href="#">Global Health Systems</a></li>
                     <li><a href="#">Enterprise Tech</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h5>Contact</h5>
+                <h5>Connectivity</h5>
                 <ul>
                     <li><a href="#">Global Headquarters</a></li>
-                    <li><a href="#">LinkedIn Advisory</a></li>
-                    <li><a href="#">Media Inquiries</a></li>
-                    <li><a href="#">Direct Consultation</a></li>
+                    <li><a href="#">Advisory LinkedIn</a></li>
+                    <li><a href="#">Consultation Requests</a></li>
                 </ul>
             </div>
         </div>
@@ -230,6 +247,9 @@
         </div>
     </footer>
 
-    <script>lucide.createIcons();</script>
+    <script>
+        // Initialize high-end icons
+        lucide.createIcons();
+    </script>
 </body>
 </html>
