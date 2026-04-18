@@ -10,23 +10,26 @@
   />
   <style>
     :root {
-      --navy-900: #1f2942;
-      --navy-800: #2c395b;
-      --navy-700: #3f4f78;
-      --navy-600: #59688e;
-      --slate-100: #f5f7fb;
-      --slate-200: #edf1f7;
-      --slate-300: #d9e1ee;
-      --text-strong: #22304c;
-      --text: #5f6c84;
+      --navy-950: #182238;
+      --navy-900: #22304c;
+      --navy-800: #314261;
+      --navy-700: #45567a;
+      --navy-600: #667494;
+      --slate-50: #fafbfd;
+      --slate-100: #f4f7fb;
+      --slate-200: #e9eef6;
+      --slate-300: #dbe4f0;
+      --text-strong: #1f2b44;
+      --text: #5d6982;
+      --text-soft: #7c879d;
       --white: #ffffff;
-      --gold-700: #b57a2a;
-      --gold-500: #d6b15e;
-      --gold-300: #efdba3;
-      --line: rgba(34, 48, 76, 0.10);
-      --shadow: 0 16px 36px rgba(25, 38, 67, 0.08);
-      --shadow-soft: 0 10px 24px rgba(25, 38, 67, 0.06);
-      --max: 1200px;
+      --gold-700: #b3772a;
+      --gold-500: #d4af62;
+      --gold-300: #eddba7;
+      --line: rgba(31, 43, 68, 0.09);
+      --shadow: 0 16px 36px rgba(21, 31, 53, 0.08);
+      --shadow-soft: 0 8px 22px rgba(21, 31, 53, 0.05);
+      --max: 1220px;
       --radius-xl: 24px;
       --radius-lg: 18px;
       --radius-md: 12px;
@@ -38,7 +41,7 @@
       margin: 0;
       font-family: "Segoe UI", Inter, Arial, sans-serif;
       color: var(--text-strong);
-      background: linear-gradient(180deg, #eef2f8 0%, #f8fafc 100%);
+      background: linear-gradient(180deg, #eef3f9 0%, #f8fafc 100%);
       line-height: 1.6;
     }
 
@@ -46,7 +49,7 @@
     img { display: block; max-width: 100%; }
 
     .shell {
-      width: min(100% - 12px, 1500px);
+      width: min(100% - 12px, 1520px);
       margin: 6px auto;
       background: var(--white);
       border-radius: 28px;
@@ -64,43 +67,55 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(90deg, rgba(70, 84, 121, 0.94), rgba(108, 120, 156, 0.94));
-      border-bottom: 1px solid rgba(255,255,255,0.12);
-      color: rgba(255,255,255,0.96);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(31, 43, 68, 0.06);
     }
 
     .nav {
-      min-height: 84px;
+      min-height: 82px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1.5rem;
     }
 
-    .brand-wordmark {
-      font-size: 1rem;
-      letter-spacing: 0.16em;
-      font-weight: 700;
-      color: var(--white);
-      white-space: nowrap;
-    }
-
     .nav-left,
     .nav-right {
       display: flex;
       align-items: center;
-      gap: 1.6rem;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-right: 0.6rem;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      object-fit: contain;
+    }
+
+    .brand-word {
+      font-size: 0.98rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: var(--navy-900);
+      white-space: nowrap;
     }
 
     .nav-link {
-      font-size: 0.97rem;
       position: relative;
-      opacity: 0.96;
+      font-size: 0.97rem;
+      color: var(--text-strong);
     }
 
     .nav-link:hover {
-      color: var(--gold-300);
+      color: var(--gold-700);
     }
 
     .nav-link.active::after {
@@ -115,29 +130,31 @@
     }
 
     .nav-cta {
-      padding: 0.82rem 1.2rem;
-      border: 1px solid rgba(214, 177, 94, 0.78);
-      border-radius: 6px;
-      font-weight: 600;
-      transition: 0.2s ease;
+      padding: 0.82rem 1.15rem;
+      border: 1px solid rgba(179, 119, 42, 0.26);
+      background: linear-gradient(90deg, var(--gold-700), var(--gold-300));
+      color: #47311a;
+      border-radius: 8px;
+      font-weight: 650;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       white-space: nowrap;
     }
 
     .nav-cta:hover {
-      background: rgba(255,255,255,0.06);
-      color: var(--gold-300);
-      border-color: rgba(239, 219, 163, 0.9);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.10);
     }
 
     /* Hero */
     .hero {
+      background:
+        radial-gradient(circle at 84% 18%, rgba(255,255,255,0.08), transparent 22%),
+        linear-gradient(135deg, #22304c 0%, #314261 48%, #556484 100%);
+      color: var(--white);
       position: relative;
       overflow: hidden;
-      color: var(--white);
-      background:
-        radial-gradient(circle at 82% 18%, rgba(255,255,255,0.14), transparent 24%),
-        linear-gradient(135deg, #263456 0%, #3f4f78 50%, #667399 100%);
-      padding: 4.2rem 0 4.6rem;
+      padding: 5.2rem 0 4.8rem;
     }
 
     .hero::before {
@@ -145,8 +162,8 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 16% 20%, rgba(255,255,255,0.04), transparent 20%),
-        linear-gradient(180deg, rgba(255,255,255,0.03), transparent 36%);
+        radial-gradient(circle at 15% 18%, rgba(255,255,255,0.03), transparent 22%),
+        linear-gradient(180deg, rgba(255,255,255,0.02), transparent 34%);
       pointer-events: none;
     }
 
@@ -155,8 +172,8 @@
       position: absolute;
       left: -10%;
       right: -10%;
-      bottom: -220px;
-      height: 360px;
+      bottom: -230px;
+      height: 340px;
       border-radius: 50%;
       background: rgba(255,255,255,0.05);
       transform: rotate(-3deg);
@@ -177,46 +194,47 @@
       color: var(--gold-300);
       text-transform: uppercase;
       letter-spacing: 0.18em;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       font-weight: 700;
     }
 
     .hero h1 {
       margin: 0 0 1rem;
-      font-size: clamp(2.3rem, 4vw, 4.35rem);
-      line-height: 1.04;
-      font-weight: 650;
-      max-width: 12ch;
+      max-width: 11ch;
+      font-size: clamp(2.7rem, 5vw, 5.1rem);
+      line-height: 0.98;
+      font-weight: 700;
+      letter-spacing: -0.03em;
     }
 
-    .hero p {
-      max-width: 690px;
-      margin: 0 0 1.1rem;
-      font-size: 1.08rem;
+    .hero-sub {
+      max-width: 700px;
+      margin: 0 0 1.2rem;
+      font-size: 1.1rem;
       color: rgba(255,255,255,0.88);
     }
 
     .credibility-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
-      margin: 1.5rem 0 1.8rem;
+      gap: 0.7rem;
+      margin: 1.4rem 0 1.8rem;
     }
 
     .cred-pill {
       padding: 0.55rem 0.85rem;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.06);
       border-radius: 999px;
-      font-size: 0.92rem;
+      border: 1px solid rgba(255,255,255,0.13);
+      background: rgba(255,255,255,0.06);
       color: rgba(255,255,255,0.95);
+      font-size: 0.91rem;
+      line-height: 1.2;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 0.9rem;
-      margin-top: 1.4rem;
     }
 
     .btn-primary,
@@ -227,21 +245,21 @@
       min-width: 180px;
       padding: 0.95rem 1.35rem;
       border-radius: 8px;
-      font-weight: 600;
+      font-weight: 650;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .btn-primary {
       background: linear-gradient(90deg, var(--gold-700), var(--gold-300));
-      color: #48331b;
-      border: 1px solid rgba(181,122,42,0.22);
+      color: #49331b;
+      border: 1px solid rgba(179, 119, 42, 0.24);
       box-shadow: 0 12px 24px rgba(0,0,0,0.12);
     }
 
     .btn-secondary {
       color: var(--white);
       border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.04);
     }
 
     .btn-primary:hover,
@@ -249,50 +267,46 @@
       transform: translateY(-1px);
     }
 
-    .hero-card {
-      justify-self: end;
-      width: min(100%, 470px);
+    .hero-panel {
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.12);
       border-radius: 22px;
-      padding: 1.6rem;
-      box-shadow: var(--shadow-soft);
+      padding: 1.8rem;
       backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-soft);
     }
 
-    .hero-logo {
-      width: min(100%, 300px);
-      margin: 0 auto 1.1rem;
+    .hero-panel-logo {
+      width: min(100%, 260px);
+      margin: 0 auto 1.3rem;
       filter: drop-shadow(0 10px 18px rgba(0,0,0,0.08));
     }
 
-    .hero-card h3 {
-      margin: 0 0 0.5rem;
-      font-size: 1.1rem;
+    .hero-panel h3 {
+      margin: 0 0 0.7rem;
+      text-align: center;
+      font-size: 1.12rem;
       font-weight: 650;
       color: var(--white);
-      text-align: center;
     }
 
-    .hero-card p {
+    .hero-panel p {
       margin: 0;
       text-align: center;
-      color: rgba(255,255,255,0.86);
+      color: rgba(255,255,255,0.85);
       font-size: 0.98rem;
     }
 
-    /* Sections */
-    section {
-      padding: 5rem 0;
-    }
+    /* Generic sections */
+    section { padding: 5rem 0; }
 
     .section-head {
-      max-width: 820px;
-      margin: 0 auto 2.4rem;
-      text-align: center;
+      text-align: left;
+      max-width: 840px;
+      margin: 0 0 2.3rem;
     }
 
-    .section-head .kicker {
+    .section-kicker {
       display: inline-block;
       margin-bottom: 0.65rem;
       color: var(--gold-700);
@@ -303,56 +317,56 @@
     }
 
     .section-head h2 {
-      margin: 0 0 0.9rem;
+      margin: 0 0 0.8rem;
       font-size: clamp(2rem, 3vw, 3rem);
-      line-height: 1.1;
-      font-weight: 650;
-      color: var(--text-strong);
+      line-height: 1.05;
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
 
     .section-head p {
-      margin: 0 auto;
+      margin: 0;
       max-width: 760px;
       color: var(--text);
-      font-size: 1.05rem;
+      font-size: 1.04rem;
     }
 
+    /* Services */
     .services {
-      background: linear-gradient(180deg, #f8fafc 0%, #f5f7fb 100%);
-      position: relative;
-      overflow: hidden;
+      background: linear-gradient(180deg, var(--slate-50) 0%, var(--slate-100) 100%);
     }
 
     .service-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1.25rem;
+      gap: 1.2rem;
     }
 
     .service-card {
       background: var(--white);
       border: 1px solid var(--line);
       border-radius: var(--radius-lg);
-      padding: 1.6rem;
+      padding: 1.55rem;
       box-shadow: var(--shadow-soft);
     }
 
-    .service-index {
-      width: 44px;
-      height: 44px;
+    .service-num {
+      width: 42px;
+      height: 42px;
       display: grid;
       place-items: center;
-      border-radius: 12px;
       margin-bottom: 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(212,175,98,0.35);
+      background: linear-gradient(180deg, #fff, #fbf7ef);
       color: var(--gold-700);
-      border: 1px solid rgba(214,177,94,0.35);
-      background: linear-gradient(180deg, #fff, #fbf7ed);
       font-weight: 700;
+      font-size: 0.92rem;
     }
 
     .service-card h3 {
-      margin: 0 0 0.65rem;
-      font-size: 1.28rem;
+      margin: 0 0 0.6rem;
+      font-size: 1.26rem;
       line-height: 1.2;
     }
 
@@ -362,22 +376,14 @@
       font-size: 0.98rem;
     }
 
-    .why-grid,
-    .cap-grid,
-    .industry-grid,
-    .canada-grid {
-      display: grid;
-      gap: 1.25rem;
-    }
-
+    /* Why OZNET */
     .why-grid {
+      display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.2rem;
     }
 
-    .why-card,
-    .industry-card,
-    .cap-card,
-    .canada-card {
+    .why-card {
       background: var(--white);
       border: 1px solid var(--line);
       border-radius: var(--radius-lg);
@@ -385,78 +391,140 @@
       box-shadow: var(--shadow-soft);
     }
 
-    .why-card h3,
-    .industry-card h3,
-    .cap-card h3,
-    .canada-card h3 {
+    .why-card h3 {
       margin: 0 0 0.55rem;
-      font-size: 1.12rem;
+      font-size: 1.1rem;
+      line-height: 1.25;
     }
 
-    .why-card p,
-    .industry-card p,
-    .cap-card p,
-    .canada-card p {
+    .why-card p {
       margin: 0;
       color: var(--text);
       font-size: 0.98rem;
     }
 
+    /* Capabilities */
+    .capabilities {
+      background: linear-gradient(180deg, #ffffff 0%, #fbfcfe 100%);
+    }
+
     .cap-grid {
+      display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
     }
 
-    .industry-grid {
+    .cap-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 1.45rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .cap-card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.08rem;
+      line-height: 1.25;
+    }
+
+    .cap-card p {
+      margin: 0;
+      color: var(--text);
+      font-size: 0.98rem;
+    }
+
+    /* Sector focus */
+    .sectors {
+      background: var(--slate-100);
+    }
+
+    .sector-grid {
+      display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.2rem;
     }
 
-    .canada-section {
+    .sector-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 1.35rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .sector-card h3 {
+      margin: 0 0 0.45rem;
+      font-size: 1.06rem;
+    }
+
+    .sector-card p {
+      margin: 0;
+      color: var(--text);
+      font-size: 0.96rem;
+    }
+
+    /* Canada */
+    .canada {
       background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
     }
 
     .canada-grid {
-      grid-template-columns: 1.1fr 0.9fr;
-      align-items: center;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 1.4rem;
+      align-items: stretch;
+    }
+
+    .canada-copy {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 1.9rem;
+      box-shadow: var(--shadow-soft);
     }
 
     .canada-copy h2 {
-      margin: 0 0 1rem;
+      margin: 0 0 0.85rem;
       font-size: clamp(2rem, 3vw, 3rem);
-      line-height: 1.1;
+      line-height: 1.05;
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
 
     .canada-copy p {
       margin: 0 0 1rem;
       color: var(--text);
-      font-size: 1.05rem;
-      max-width: 650px;
+      font-size: 1.02rem;
     }
 
     .canada-panel {
-      background: linear-gradient(135deg, #2b395a 0%, #46547c 100%);
+      background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-700) 100%);
       color: var(--white);
       border-radius: 22px;
-      padding: 1.8rem;
+      padding: 1.9rem;
       box-shadow: var(--shadow);
     }
 
     .canada-panel h3 {
       margin: 0 0 0.7rem;
-      font-size: 1.2rem;
+      font-size: 1.18rem;
+      line-height: 1.25;
     }
 
     .canada-panel p {
       margin: 0;
       color: rgba(255,255,255,0.86);
-      font-size: 0.98rem;
+      font-size: 0.99rem;
     }
 
+    /* CTA */
     .cta-band {
-      background: linear-gradient(135deg, #263456 0%, #43507a 100%);
+      background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-700) 100%);
       color: var(--white);
-      text-align: center;
       position: relative;
       overflow: hidden;
+      text-align: center;
     }
 
     .cta-band::after {
@@ -464,10 +532,10 @@
       position: absolute;
       left: -10%;
       right: -10%;
-      bottom: -180px;
+      bottom: -190px;
       height: 300px;
-      background: rgba(255,255,255,0.04);
       border-radius: 50%;
+      background: rgba(255,255,255,0.05);
     }
 
     .cta-band .container {
@@ -476,41 +544,48 @@
     }
 
     .cta-band h2 {
-      margin: 0 0 1rem;
+      margin: 0 0 0.9rem;
       font-size: clamp(2rem, 3vw, 3rem);
-      line-height: 1.08;
+      line-height: 1.05;
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
 
     .cta-band p {
-      margin: 0 auto 1.5rem;
       max-width: 760px;
+      margin: 0 auto 1.4rem;
       color: rgba(255,255,255,0.88);
-      font-size: 1.05rem;
+      font-size: 1.04rem;
     }
 
+    .cta-band .hero-actions {
+      justify-content: center;
+    }
+
+    /* Footer */
     .footer {
-      background: linear-gradient(180deg, #212b45 0%, #2c395b 100%);
+      background: linear-gradient(180deg, var(--navy-950) 0%, var(--navy-900) 100%);
       color: rgba(255,255,255,0.92);
       padding: 2.8rem 0 2rem;
     }
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.9fr 0.95fr;
+      grid-template-columns: 1.15fr 0.95fr 1fr;
       gap: 2rem;
       align-items: start;
     }
 
     .footer-brand img {
-      width: 190px;
-      margin-bottom: 0.85rem;
+      width: 175px;
+      margin-bottom: 0.8rem;
     }
 
     .footer-brand p,
     .footer-links a,
     .footer-contact a,
     .footer-contact div {
-      color: rgba(255,255,255,0.82);
+      color: rgba(255,255,255,0.80);
       font-size: 0.96rem;
     }
 
@@ -529,28 +604,27 @@
       margin-top: 1.8rem;
       padding-top: 1.2rem;
       border-top: 1px solid rgba(255,255,255,0.12);
-      color: rgba(255,255,255,0.68);
+      color: rgba(255,255,255,0.66);
       font-size: 0.92rem;
     }
 
     @media (max-width: 1100px) {
       .hero-inner,
-      .canada-grid,
       .service-grid,
       .cap-grid,
-      .industry-grid,
+      .sector-grid,
       .why-grid,
+      .canada-grid,
       .footer-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero-card {
-        justify-self: stretch;
-        max-width: none;
+      .hero h1 {
+        max-width: 100%;
       }
     }
 
-    @media (max-width: 820px) {
+    @media (max-width: 860px) {
       .nav {
         flex-direction: column;
         justify-content: center;
@@ -564,11 +638,11 @@
       }
 
       .hero {
-        padding: 3rem 0 3.6rem;
+        padding: 3.8rem 0 3.8rem;
       }
 
-      .hero-logo {
-        width: min(100%, 260px);
+      .hero-panel-logo {
+        width: min(100%, 220px);
       }
     }
 
@@ -584,11 +658,11 @@
       }
 
       .hero h1 {
-        max-width: 100%;
+        font-size: clamp(2.3rem, 10vw, 3.4rem);
       }
 
-      .credibility-row,
-      .hero-actions {
+      .hero-actions,
+      .credibility-row {
         justify-content: center;
       }
     }
@@ -599,7 +673,10 @@
     <header class="site-header">
       <div class="container nav">
         <div class="nav-left">
-          <a href="#home" class="brand-wordmark">OZNET</a>
+          <a href="#home" class="brand">
+            <img src="./logo.png" alt="OZNET logo" class="brand-mark" />
+            <span class="brand-word">OZNET</span>
+          </a>
           <a href="#services" class="nav-link active">Services</a>
           <a href="#why-oznet" class="nav-link">Why OZNET</a>
           <a href="#capabilities" class="nav-link">Capabilities</a>
@@ -614,29 +691,31 @@
     <main>
       <section class="hero" id="home">
         <div class="container hero-inner">
-          <div class="hero-copy-block">
+          <div>
             <span class="eyebrow">Proudly Canadian • Serving clients worldwide</span>
-            <h1>AI, Cloud, Security, and Enterprise Architecture for complex organizations.</h1>
-            <p>
-              OZNET is a Canadian technology consulting firm with 25+ years of experience helping organizations modernize platforms, strengthen governance, improve security, and deliver enterprise transformation with confidence.
+            <h1>Technology consulting built for transformation.</h1>
+            <p class="hero-sub">
+              OZNET advises organizations on AI, Cloud, Security, and Enterprise Architecture with a consulting approach shaped by 25+ years of experience in complex, enterprise, and regulated environments.
             </p>
+
             <div class="credibility-row">
               <span class="cred-pill">Proudly Canadian</span>
               <span class="cred-pill">25+ Years Experience</span>
               <span class="cred-pill">Global Client Focus</span>
               <span class="cred-pill">Enterprise & Regulated Environments</span>
             </div>
+
             <div class="hero-actions">
               <a href="#services" class="btn-primary">Explore Services</a>
               <a href="#contact" class="btn-secondary">Contact Us</a>
             </div>
           </div>
 
-          <aside class="hero-card">
-            <img src="./logo.png" alt="OZNET logo" class="hero-logo" />
+          <aside class="hero-panel">
+            <img src="./logo.png" alt="OZNET logo" class="hero-panel-logo" />
             <h3>Your Vision, Our Expertise</h3>
             <p>
-              Strategic consulting for modernization, cloud adoption, enterprise architecture, security, and operating model maturity.
+              Strategic guidance for modernization, governance, architecture, security, and enterprise technology delivery.
             </p>
           </aside>
         </div>
@@ -645,43 +724,43 @@
       <section class="services" id="services">
         <div class="container">
           <div class="section-head">
-            <span class="kicker">Core services</span>
-            <h2>Consulting services built for enterprise change.</h2>
+            <span class="section-kicker">Core services</span>
+            <h2>Four service lines. One disciplined consulting approach.</h2>
             <p>
-              OZNET helps organizations translate strategic priorities into secure, scalable, and governable technology outcomes across AI, cloud, architecture, and security.
+              OZNET helps organizations shape and execute technology priorities with clear architecture, sound governance, and practical guidance that supports delivery at enterprise scale.
             </p>
           </div>
 
           <div class="service-grid">
             <article class="service-card">
-              <div class="service-index">01</div>
+              <div class="service-num">01</div>
               <h3>AI Consulting</h3>
               <p>
-                Advisory services for responsible AI adoption, AI operating models, governance, platform readiness, risk considerations, and enterprise-scale implementation planning.
+                Advisory for responsible AI adoption, AI strategy, governance, platform readiness, risk management, and enterprise implementation planning.
               </p>
             </article>
 
             <article class="service-card">
-              <div class="service-index">02</div>
+              <div class="service-num">02</div>
               <h3>Cloud Consulting</h3>
               <p>
-                Strategy and guidance for cloud transformation, hybrid environments, platform modernization, workload planning, governance, and cloud-enabled operating model evolution.
+                Consulting for cloud transformation, hybrid strategy, workload modernization, governance models, landing zones, and operating model evolution.
               </p>
             </article>
 
             <article class="service-card">
-              <div class="service-index">03</div>
+              <div class="service-num">03</div>
               <h3>Enterprise Architecture</h3>
               <p>
-                Target-state architecture, roadmap development, solution design, integration planning, technical standards, and strategic alignment across business and technology priorities.
+                Target-state architecture, roadmap development, standards, solution design, integration planning, and strategic alignment across technology portfolios.
               </p>
             </article>
 
             <article class="service-card">
-              <div class="service-index">04</div>
+              <div class="service-num">04</div>
               <h3>Security Consulting</h3>
               <p>
-                Security-focused advisory for governance, architecture, control design, access models, modernization risk reduction, and resilient environments in complex organizations.
+                Security-focused advisory for governance, architecture, control design, identity models, modernization risk reduction, and resilient enterprise environments.
               </p>
             </article>
           </div>
@@ -691,132 +770,121 @@
       <section id="why-oznet">
         <div class="container">
           <div class="section-head">
-            <span class="kicker">Why OZNET</span>
-            <h2>Strategic perspective backed by practical delivery depth.</h2>
+            <span class="section-kicker">Why OZNET</span>
+            <h2>Senior perspective with implementation-aware depth.</h2>
             <p>
-              OZNET is positioned for clients that need more than recommendations. We support transformation with architecture discipline, governance rigor, and implementation-aware guidance.
+              OZNET is designed to appeal to clients that need consulting guidance grounded in real architecture, governance, operational reality, and structured delivery.
             </p>
           </div>
 
           <div class="why-grid">
             <article class="why-card">
               <h3>25+ years of enterprise advisory experience</h3>
-              <p>
-                Deep experience across architecture, infrastructure, cloud, collaboration, security, and enterprise service design.
-              </p>
+              <p>Experience spanning architecture, cloud, collaboration, infrastructure, security, governance, and transformation planning.</p>
             </article>
-
             <article class="why-card">
               <h3>Built for complex and regulated environments</h3>
-              <p>
-                Strong fit for organizations where governance, security, documentation quality, and structured execution matter.
-              </p>
+              <p>Well suited to organizations where control, security, documentation quality, and careful execution matter.</p>
             </article>
-
             <article class="why-card">
-              <h3>Strategy plus implementation realism</h3>
-              <p>
-                Recommendations are grounded in operational realities, delivery constraints, and sustainable long-term architecture.
-              </p>
+              <h3>Strategic thinking plus practical delivery guidance</h3>
+              <p>Recommendations are shaped by implementation realities, long-term maintainability, and the need for operating maturity.</p>
             </article>
-
             <article class="why-card">
-              <h3>Canadian firm with a global perspective</h3>
-              <p>
-                A proudly Canadian consulting identity paired with service positioning suitable for organizations across international markets.
-              </p>
+              <h3>Canadian firm with global ambition</h3>
+              <p>A proudly Canadian consulting identity positioned for enterprise clients across domestic and international markets.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="capabilities">
+      <section class="capabilities" id="capabilities">
         <div class="container">
           <div class="section-head">
-            <span class="kicker">Advisory depth</span>
-            <h2>Capabilities aligned to enterprise modernization.</h2>
+            <span class="section-kicker">Capabilities</span>
+            <h2>Advisory depth beyond the headline services.</h2>
             <p>
-              OZNET’s advisory scope extends beyond four service labels into the supporting disciplines that make transformation programs durable, governable, and operationally sound.
+              OZNET’s consulting profile extends into the supporting disciplines that help major transformation programs remain secure, governable, and operationally sound.
             </p>
           </div>
 
           <div class="cap-grid">
             <article class="cap-card">
               <h3>Cloud and workplace transformation</h3>
-              <p>Modernization planning across cloud platforms, digital workplace services, and evolving enterprise operating models.</p>
+              <p>Modernization planning across cloud platforms, collaboration ecosystems, and evolving enterprise operating models.</p>
             </article>
             <article class="cap-card">
               <h3>Microsoft 365 and collaboration</h3>
-              <p>Guidance for collaboration ecosystems, governance, secure adoption, platform maturity, and service evolution.</p>
+              <p>Guidance for secure adoption, governance, platform maturity, service evolution, and enterprise collaboration design.</p>
             </article>
             <article class="cap-card">
               <h3>Identity, access, and governance</h3>
-              <p>Access models, role design, governance controls, and architecture patterns that support security and accountability.</p>
+              <p>Access models, role design, governance controls, and architecture patterns that strengthen accountability and control.</p>
             </article>
             <article class="cap-card">
               <h3>Security architecture and risk reduction</h3>
-              <p>Consulting for security posture, secure design decisions, modernization risks, and compliance-oriented architecture thinking.</p>
+              <p>Consulting for security posture, secure design decisions, architecture patterns, and modernization risk management.</p>
             </article>
             <article class="cap-card">
               <h3>Infrastructure modernization and digital workplace</h3>
-              <p>Advisory support for VDI, platform lifecycle planning, operational readiness, and stable transformation of legacy estates.</p>
+              <p>Advisory support for VDI, lifecycle planning, operational readiness, and stable transition away from legacy platforms.</p>
             </article>
             <article class="cap-card">
               <h3>Roadmaps, standards, and technical documentation</h3>
-              <p>Architecture roadmaps, SOPs, implementation guidance, service documentation, and structured operating artefacts.</p>
+              <p>Architecture roadmaps, SOPs, implementation guidance, service documents, and structured operating artefacts.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="industries">
+      <section class="sectors">
         <div class="container">
           <div class="section-head">
-            <span class="kicker">Engagement focus</span>
+            <span class="section-kicker">Engagement focus</span>
             <h2>Relevant across public, private, and regulated sectors.</h2>
             <p>
-              OZNET’s consulting profile is suited to organizations facing high expectations around governance, resilience, modernization, and secure transformation.
+              OZNET’s positioning is suited to organizations balancing modernization ambitions with strong expectations around resilience, governance, and secure change.
             </p>
           </div>
 
-          <div class="industry-grid">
-            <article class="industry-card">
+          <div class="sector-grid">
+            <article class="sector-card">
               <h3>Public sector</h3>
-              <p>Support for departments and agencies navigating governance, modernization, and service maturity requirements.</p>
+              <p>Support for departments and agencies working through modernization, governance, and service maturity priorities.</p>
             </article>
-            <article class="industry-card">
+            <article class="sector-card">
               <h3>Defense and mission-critical environments</h3>
-              <p>Structured consulting for organizations where resiliency, controlled change, and secure operations are essential.</p>
+              <p>Structured consulting for organizations where resilient operations, controlled change, and secure platforms are essential.</p>
             </article>
-            <article class="industry-card">
+            <article class="sector-card">
               <h3>Healthcare and regulated industries</h3>
-              <p>Advisory guidance for security-conscious organizations balancing modernization with risk and compliance expectations.</p>
+              <p>Advisory guidance for security-conscious environments balancing innovation with risk and compliance obligations.</p>
             </article>
-            <article class="industry-card">
-              <h3>Enterprise organizations worldwide</h3>
-              <p>Global-facing service positioning for clients seeking mature technology guidance across complex transformation programs.</p>
+            <article class="sector-card">
+              <h3>Global enterprise organizations</h3>
+              <p>Enterprise-facing consulting support for clients pursuing AI, cloud, security, and architecture transformation worldwide.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="canada-section">
+      <section class="canada">
         <div class="container canada-grid">
           <div class="canada-copy">
-            <span class="kicker">Canadian identity</span>
-            <h2>Canadian-rooted. Globally oriented.</h2>
+            <span class="section-kicker">Canadian identity</span>
+            <h2>Canadian-rooted. Internationally credible.</h2>
             <p>
-              OZNET is positioned as a proudly Canadian consulting firm with the depth and professionalism expected by enterprise clients worldwide.
+              OZNET is positioned as a proudly Canadian consulting firm with the maturity, clarity, and professionalism expected by enterprise clients worldwide.
             </p>
             <p>
-              The brand should communicate trust, clarity, disciplined execution, and a consulting approach shaped by long experience in complex environments rather than generic marketing language.
+              The brand should communicate trust, strategic depth, disciplined execution, and a consulting approach shaped by real experience in complex environments.
             </p>
           </div>
 
           <div class="canada-panel">
-            <h3>Built for executive conversations.</h3>
+            <h3>Built for executive conversations and large-scale opportunities.</h3>
             <p>
-              OZNET’s presentation is designed to signal large-contract readiness: focused service lines, credible messaging, structured capabilities, and clear engagement paths.
+              OZNET is framed as a serious advisory firm: focused service lines, structured capabilities, strong governance themes, and a presentation style aligned to enterprise buying expectations.
             </p>
           </div>
         </div>
@@ -824,11 +892,11 @@
 
       <section class="cta-band" id="contact">
         <div class="container">
-          <h2>Start a strategic conversation with OZNET.</h2>
+          <h2>Start a strategic discussion with OZNET.</h2>
           <p>
-            Whether you are defining an AI agenda, modernizing cloud strategy, strengthening security architecture, or shaping a target-state enterprise architecture, OZNET is positioned to support the discussion.
+            Whether you are shaping an AI agenda, defining cloud priorities, strengthening security posture, or building a target-state enterprise architecture, OZNET is positioned to support the conversation.
           </p>
-          <div class="hero-actions" style="justify-content:center;">
+          <div class="hero-actions">
             <a href="mailto:info@oznet.ca" class="btn-primary">Email info@oznet.ca</a>
             <a href="#services" class="btn-secondary">Review Services</a>
           </div>
